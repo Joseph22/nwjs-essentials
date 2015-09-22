@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Native Apis!</title>
+  </head>
+  <body>
+    <script>
+    <!--Here goes your code-->
+    var markdown = require("markdown").markdown,
+    	div = document.createElement("div"),
+    	content = "#Hello World!\n" +
+    			"We are using **io.js** " + 
+    			"version *" + process.version + "*";
+    div.innerHTML = markdown.toHTML(content);
+    document.body.appendChild(div);
+
+    var divButton = document.createElement("div");
+    divButton.innerHTML = "<button id='btnExit'>Salir</button>" 
+    document.body.appendChild(divButton);
+
+    var gui = require('nw.gui');
+    var currentWindow = gui.Window.get();
+    //console.log(gui, currentWindow);
+    //currentWindow.close();
+    var btnExit = document.getElementById("btnExit");
+    btnExit.addEventListener('click',function(){
+      currentWindow.close();
+    });
+
+    currentWindow.on('minimize',function(){
+      alert('Minimizing the window');
+    });
+
+    currentWindow.on('close',function(){
+      alert('Closing the window');
+      gui.App.quit();
+    });
+    </script>
+  </body>
+</html>

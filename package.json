@@ -1,0 +1,7 @@
+{
+  "name": "nw-hello-world",
+  "main": "cap2-eventEmitter1.html",
+  "dependencies": {
+    "markdown": "0.5.x"
+  }
+}
